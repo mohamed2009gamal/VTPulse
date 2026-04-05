@@ -1,0 +1,20 @@
+* { /* Universal selector - resets margins */
+  margin: 0; /* Removes default margin from all elements */
+}
+
+html { /* Root HTML element */
+  scroll-behavior: smooth; /* Enables smooth scrolling for all links */
+}
+
+body { /* Body element - global typography and smoothing */
+  margin: 0; /* No default margin */
+  font-family: 'Nexo', Bierika, 'K2D', 'Osiris React', -apple-system, BlinkMacSystemFont, sans-serif; /* Custom fonts first with fallbacks */
+  -webkit-font-smoothing: antialiased; /* Improves text rendering on macOS Safari/Chrome */
+  -moz-osx-font-smoothing: grayscale; /* Improves text rendering on macOS Firefox */
+}
+
+code { /* Inline code elements */
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', /* Monospace font stack for code */
+    monospace; /* Final fallback monospace */
+}
+

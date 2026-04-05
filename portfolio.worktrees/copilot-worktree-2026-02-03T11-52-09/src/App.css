@@ -1,0 +1,112 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  background-color: #000000;
+  /**background: linear-gradient(to right, #0f0c29, #302b63, #24243e);**/
+  transition: background-color 0.6s ease;
+  overflow-x: hidden;
+}
+
+.scroll-track {
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+
+.scroll-track::-webkit-scrollbar {
+  width: 0;
+}
+
+.scroll-track:hover::-webkit-scrollbar {
+  width: 8px;
+}
+
+.scroll-track::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.35);
+  border-radius: 10px;
+}
+
+.scroll-track::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+body.white-mode {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+html {
+  scroll-behavior: smooth;
+  user-select: none;
+}
+
+
+
+
+.container {
+  animation: fadeInDown 2s ease forwards;
+  /* Initial fade-in animation */
+  position: absolute;
+  top: 52%;
+  right: 10%;
+  transform: translateY(-50%);
+  /* Center vertically */
+  width: 30%;
+  height: fit-content;
+  aspect-ratio: 3 / 4;
+  border-radius: 20px;
+  cursor: pointer;
+  backdrop-filter: blur(5px);
+  overflow: hidden;
+  opacity: 0;
+  /* Start invisible */
+  z-index: 1;
+  transition: box-shadow 0.7s ease-in-out, background-color 0.3s ease-in-out;
+  animation: floatHover 2s ease-in-out infinite alternate;
+  /* Continuous floating animation on hover */
+}
+
+.welcoming-section-main-container {
+  padding: 30px 20px;
+}
+
+
+/* Cursor for typing effect */
+.cursor {
+  display: inline-block;      /* make it a block */
+  width: 10px;                /* cursor width */
+  height: 25px;               /* cursor height */
+  background-color: rgb(70, 52, 99);    /* color of the cursor */
+  margin-left: 2px;
+  animation: blink 3s infinite;
+}
+
+@keyframes blink {
+  0%, 50%, 100% { opacity: 1; }
+  25%, 75% { opacity: 0; }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

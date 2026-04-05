@@ -1,0 +1,22 @@
+.theme-toggle {
+  position: fixed;
+  left: 25px;
+  bottom: 15px;
+  z-index: 1200;
+  width: 58px;
+  height: 58px;
+  border-radius: 20%;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.theme-toggle:hover { transform: translateY(-4px); }
+
+.theme-toggle.dark { background: linear-gradient(90deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02)); color: #e6eef8; }
+.theme-toggle.light { background: linear-gradient(90deg, rgba(0,0,0,0.05), rgba(0,0,0,0.02)); color: #071228; }
+
+/* make SVG adapt */
+.theme-toggle svg { width: 20px; height: 20px; }

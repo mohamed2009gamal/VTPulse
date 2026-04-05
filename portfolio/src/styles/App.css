@@ -1,0 +1,179 @@
+/* ================= Universal Reset ================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+}
+
+/* ================= Body ================= */
+body {
+  font-family: 'Nexo', 'Bierika', 'K2D', 'Osiris React', sans-serif;
+  min-height: 100vh;
+  width: 100vw;
+  background: var(--bg);
+  color: var(--text);
+  transition: background-color 0.3s cubic-bezier(0.4,0,0.2,1), color 0.3s ease;
+  overflow-x: hidden;
+}
+
+/* ================= Theme Variables (Fallbacks) ================= */
+:root {
+  /* Dark theme as default */
+  --bg: #000000;
+  --text: #f1f5f9;
+  --muted: #a1a1aa;
+  --accent: #1e90ff;
+  --link: #9ec1ff;
+  --linkActive: #5b7cff;
+  --cardBg: #0f0f12;
+  --inputBg: #15151a;
+  --inputBorder: #2a2a32;
+  --buttonBg: #2563eb;
+  --sidebarBg: #0b0b0e;
+  --sidebarBorder: #1f1f25;
+  --hoverBg: rgba(255,255,255,0.08);
+  --menuBg: rgba(0,0,0,0.92);
+  --headerBg: rgba(0,0,0,0.4);
+  --ring: rgba(30,144,255,0.35);
+  --app-bg: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+}
+
+/* ================= Global Text ================= */
+html, body, #root, .app-wrapper {
+  color: var(--text);
+}
+
+:where(.app-wrapper, main, section, article, nav, header, footer, aside)
+:where(h1,h2,h3,h4,h5,h6,p,span,li,small,em,strong,label,dt,dd,th,td,blockquote,figcaption) {
+  color: inherit;
+  transition: color 0.3s ease;
+}
+
+a, a:visited {
+  color: var(--link);
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--linkActive);
+}
+
+/* ================= Common Elements ================= */
+button {
+  background: var(--buttonBg);
+  color: var(--text);
+  border: 1px solid var(--inputBorder);
+  transition: all 0.3s ease;
+}
+
+input, textarea, select {
+  background: var(--inputBg);
+  color: var(--text);
+  border: 1px solid var(--inputBorder);
+  transition: all 0.3s ease;
+}
+
+.card {
+  background: var(--cardBg);
+  color: var(--text);
+  border: 1px solid var(--inputBorder);
+  transition: all 0.3s ease;
+}
+
+/* ================= Scrollbar ================= */
+.scroll-track {
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+
+.scroll-track::-webkit-scrollbar { width: 0; }
+.scroll-track:hover::-webkit-scrollbar { width: 8px; }
+.scroll-track::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.35);
+  border-radius: 10px;
+}
+.scroll-track::-webkit-scrollbar-track { background: transparent; }
+
+/* ================= HTML Background ================= */
+html {
+  background: var(--app-bg);
+  scroll-behavior: smooth;
+  user-select: none;
+  -webkit-user-select: none;
+  min-height: 100vh;
+}
+
+/* ================= Main Container ================= */
+.container {
+  position: absolute;
+  top: 52%;
+  right: 10%;
+  transform: translateY(-50%);
+  width: 30%;
+  height: fit-content;
+  aspect-ratio: 3 / 4;
+  border-radius: 20px;
+  cursor: pointer;
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+  overflow: hidden;
+  opacity: 0;
+  z-index: 1;
+  transition: box-shadow 0.7s ease-in-out, background-color 0.3s ease-in-out;
+  animation: fadeInDown 2s ease forwards, floatHover 2s ease-in-out infinite alternate;
+}
+
+.welcoming-section-main-container {
+  padding: 30px 20px;
+}
+
+/* ================= Cursor ================= */
+.cursor {
+  display: inline-block;
+  width: 10px;
+  height: 25px;
+  background-color: rgb(70, 52, 99);
+  margin-left: 2px;
+  animation: blink 3s infinite;
+}
+
+/* ================= Animations ================= */
+@keyframes blink {
+  0%, 50%, 100% { opacity: 1; }
+  25%, 75% { opacity: 0; }
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes floatHover {
+  from { transform: translateY(-50%); }
+  to { transform: translateY(-60%); }
+}
+
+/* ================= App Wrapper ================= */
+.app-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 7vh;
+  position: relative;
+}
+
+/* ================= Tab Navigation ================= */
+.tab-nav-container {
+  position: fixed;
+  bottom: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999 !important;
+  background: transparent;
+  overflow: visible;
+}

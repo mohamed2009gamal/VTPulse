@@ -1,0 +1,179 @@
+/* =========================================================
+   HEADER MOVABLE LINKS (MATCH NAV STYLE)
+========================================================= */
+
+ul.wrapper {
+  position: fixed;
+  top: 100px;
+  left: 20px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: fit-content;
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  background: transparent;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  animation: slideDown 1s ease-in-out;
+  z-index: 10000;
+
+  transition: opacity 0.9s ease, transform 0.3s ease;
+}
+
+/* When scrolled → vertical */
+ul.wrapper.scrolled {
+  top: auto;
+  bottom: 15px;
+  left: 15px;
+  flex-direction: column;
+}
+
+/* =========================================================
+   ICON BASE STYLE
+========================================================= */
+.wrapper .icon {
+  position: relative;
+  border-radius: 50%;
+  margin: 10px;
+  width: 50px;
+  height: 50px;
+  font-size: 18px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  cursor: pointer;
+  color: #0400fad0;
+  text-decoration: none;
+
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+/* Link inside icon */
+.wrapper .icon a {
+  color: inherit;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+/* =========================================================
+   SAME NAVBAR HOVER LOGIC (FADE OTHERS)
+========================================================= */
+.wrapper:hover .icon {
+  opacity: 0.55;
+  transform: scale(0.95);
+}
+
+.wrapper .icon:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+/* =========================================================
+   TOOLTIP (KEPT YOUR LOGIC – POLISHED)
+========================================================= */
+.wrapper .tooltip {
+  position: absolute;
+  top: 0;
+  font-size: 14px;
+  background: #ffffff;
+  color: #444;
+  padding: 5px 8px;
+  border-radius: 5px;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.35s ease;
+  white-space: nowrap;
+  user-select: none;
+  z-index: 10;
+}
+
+.wrapper .tooltip::before {
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: inherit;
+  bottom: 22px;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+}
+
+/* Tooltip show */
+.wrapper .icon:hover .tooltip {
+  top: 70px;
+  opacity: 1;
+}
+
+/* =========================================================
+   SCROLLED TOOLTIP POSITION
+========================================================= */
+.wrapper.scrolled .tooltip::before {
+  top: 8.5px;
+  left: 0;
+}
+
+.wrapper.scrolled .icon:hover .tooltip {
+  top: 12px;
+  left: 70px;
+  opacity: 1;
+  color: #ffffff;
+}
+
+/* =========================================================
+   BRAND COLORS (UNCHANGED – JUST CLEAN)
+========================================================= */
+.wrapper .facebook:hover,
+.wrapper .facebook:hover .tooltip,
+.wrapper .facebook:hover .tooltip::before {
+  background: #1877f2;
+  color: #fff;
+}
+
+.wrapper .twitter:hover,
+.wrapper .twitter:hover .tooltip,
+.wrapper .twitter:hover .tooltip::before {
+  background: #1da1f2;
+  color: #fff;
+}
+
+.wrapper .instagram:hover,
+.wrapper .instagram:hover .tooltip,
+.wrapper .instagram:hover .tooltip::before {
+  background: #e4405f;
+  color: #fff;
+}
+
+.wrapper .linkedin:hover,
+.wrapper .linkedin:hover .tooltip,
+.wrapper .linkedin:hover .tooltip::before {
+  background: #0077b5;
+  color: #fff;
+}
+
+.wrapper .github:hover,
+.wrapper .github:hover .tooltip,
+.wrapper .github:hover .tooltip::before {
+  background: #333;
+  color: #fff;
+}
+
+/* =========================================================
+   OPTIONAL ENTRY ANIMATION
+========================================================= */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

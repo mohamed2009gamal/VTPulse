@@ -1,0 +1,178 @@
+.main-container {
+  display: flex; /* Flex layout for centering */
+  justify-content: center; /* Centers horizontally */
+  align-items: center; /* Centers vertically */
+  width: 100%; /* Full width */
+  height: 100vh; /* Full viewport height */
+  background: var(--app-bg); /* Uses theme gradient background */
+  padding: 20px; /* Inner padding */
+  font-family: "Inter", sans-serif; /* Font stack */
+  color: var(--text); /* Theme text color */
+}
+
+.main-container * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.main-container .card-box {
+  display: flex; /* Side-by-side panels with wrap */
+  flex-wrap: wrap; /* Responsive stacking */
+  width: 100%; /* Full container width */
+  max-width: 1000px; /* Max width constraint */
+  background: var(--cardBg); /* Theme card background */
+  border-radius: 24px; /* Rounded corners */
+  overflow: hidden; /* Clips child overflow */
+  border: 1px solid var(--inputBorder); /* Theme border */
+  box-shadow: 0 0 40px var(--ring); /* Theme glow shadow */
+}
+
+.main-container .left-panel {
+  flex: 1 1 340px; /* Flexible width with min 340px */
+  position: relative; /* For absolute noise texture */
+  background: radial-gradient(circle at 50% 10%, var(--accent) 0%, var(--buttonBg) 30%, var(--bg) 100%); /* Theme gradient */
+  padding: 40px; /* Inner spacing */
+  display: flex; /* Flex content */
+  flex-direction: column; /* Vertical stack */
+  justify-content: center; /* Center content */
+}
+
+.main-container .right-panel {
+  flex: 1 1 340px; /* Flexible width */
+  background: var(--cardBg); /* Theme card bg */
+  padding: 40px; /* Spacing */
+  display: flex; /* Flex centering */
+  justify-content: center; /* Horizontal center */
+}
+
+.noise-texture {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.1;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+.brand-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 40px;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.hero-text {
+  z-index: 1;
+  position: relative;
+}
+
+.hero-title {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  line-height: 1.2;
+}
+
+.hero-desc {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.5;
+}
+
+.form-wrapper {
+  width: 100%;
+  max-width: 400px;
+}
+
+.form-header-group {
+  margin-bottom: 30px;
+}
+
+.form-title {
+  font-size: 24px; /* Large title size */
+  font-weight: 600; /* Semi-bold */
+  margin-bottom: 8px; /* Spacing below */
+  color: var(--text); /* Theme text */
+}
+
+.form-desc {
+  font-size: 14px; /* Small desc */
+  color: var(--muted); /* Muted desc */
+}
+
+.divider-text {
+  font-size: 12px; /* Small text */
+  color: var(--muted); /* Muted divider */
+  margin-bottom: 15px; /* Spacing */
+  text-transform: uppercase; /* Caps */
+  letter-spacing: 1px; /* Spacing effect */
+}
+
+.input-box {
+  margin-bottom: 20px;
+}
+
+.input-label {
+  display: block; /* Block display for label */
+  font-size: 14px; /* Label size */
+  color: var(--muted); /* Muted label text */
+  margin-bottom: 8px; /* Space below label */
+}
+
+.input-field {
+  width: 100%; /* Full width input */
+  padding: 12px; /* Comfortable padding */
+  background: var(--inputBg); /* Theme input background */
+  border: 1px solid var(--inputBorder); /* Theme border */
+  border-radius: 8px; /* Rounded corners */
+  color: var(--text); /* Theme text */
+  font-size: 14px; /* Readable size */
+  transition: border-color 0.2s; /* Smooth focus transition */
+}
+
+.input-field:focus {
+  outline: none; /* No browser outline */
+  border-color: var(--accent); /* Accent focus border */
+}
+
+.input-field::placeholder {
+  color: var(--muted); /* Muted placeholder text */
+}
+
+.password-wrapper {
+  position: relative;
+}
+
+.submit-button {
+  width: 100%; /* Full width */
+  padding: 12px; /* Padding */
+  background: var(--buttonBg); /* Theme button bg */
+  color: var(--text); /* Theme text */
+  border: none; /* No border */
+  border-radius: 8px; /* Rounded */
+  font-size: 16px; /* Size */
+  font-weight: 600; /* Bold */
+  cursor: pointer; /* Hand cursor */
+  transition: background 0.2s; /* Smooth hover */
+  margin-top: 10px; /* Top spacing */
+}
+
+.submit-button:hover:not(:disabled) {
+  background: var(--accent); /* Hover accent */
+}
+
+.submit-button:disabled {
+  opacity: 0.6; /* Disabled opacity */
+  cursor: not-allowed; /* No pointer */
+}
+
+.footer-text {
+  margin-top: 20px; /* Top spacing */
+  text-align: center; /* Center align */
+  font-size: 12px; /* Small text */
+  color: var(--muted); /* Muted footer */
+}

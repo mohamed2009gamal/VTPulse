@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Mohamed Gamal - Frontend Developer Portfolio</title>
+  <meta charset="utf-8" />
+  <link rel="icon" type="image/png" href="%PUBLIC_URL%/Logo.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="description" content="Web site created using create-react-app" />
+  <meta name="keywords"
+    content="Mohamed Gamal, web developer, frontend developer, React developer, JavaScript, UI UX designer, portfolio, creative developer, modern web design, responsive design, freelance web developer, AI chatbot, Framer Motion, EmailJS" />
+  <meta name="author" content="Mohamed Gamal" />
+
+  <link rel="apple-touch-icon" href="%PUBLIC_URL%/Logo.png" />
+  <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.bunny.net/css?family=nexo:basic|bierika:basic|osirisreact:light|k2d:300..700"
+    rel="stylesheet">
+</head>
+
+<body>
+  <noscript>You need to enable JavaScript to run this app.</noscript>
+
+  <!-- BACKGROUND LAYER -->
+  <div id="theme-bg"></div>
+
+  <div id="root"></div>
+
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const savedTheme = localStorage.getItem('theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    });
+
+    document.addEventListener("contextmenu", e => e.preventDefault());
+  </script>
+</body>
+
+</html>

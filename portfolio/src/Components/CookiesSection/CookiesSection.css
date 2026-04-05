@@ -1,0 +1,66 @@
+.cookies-wrapper {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999999;
+}
+
+.cookies-wrapper .cookie-card {
+  max-width: 320px;
+  padding: 1rem;
+  background-color: var(--cardBg, #fff);
+  border-radius: 10px;
+  box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.05);
+}
+
+.cookies-wrapper .title {
+  font-weight: 600;
+  color: var(--text, rgb(31 41 55));
+}
+
+.cookies-wrapper .description {
+  margin-top: 1rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: var(--muted, rgb(75 85 99));
+}
+
+.cookies-wrapper .description a {
+  color: var(--link, rgb(59 130 246));
+  text-decoration: none;
+}
+
+.cookies-wrapper .description a:hover {
+  text-decoration: underline;
+}
+
+.cookies-wrapper .actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: 1rem;
+  gap: 1rem;
+}
+
+.cookies-wrapper .accept {
+  font-size: 0.75rem;
+  line-height: 1rem;
+  background-color: var(--buttonBg, rgb(17 24 39));
+  font-weight: 500;
+  border-radius: 0.5rem;
+  color: #fff;
+  padding: 0.625rem 1rem;
+  border: none;
+  transition: all .15s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+.cookies-wrapper .accept:hover {
+  background-color: var(--accent, rgb(55 65 81));
+}
+
+.cookies-wrapper .accept:focus {
+  outline: 2px solid var(--ring, rgba(30, 144, 255, 0.35));
+  outline-offset: 2px;
+}
+

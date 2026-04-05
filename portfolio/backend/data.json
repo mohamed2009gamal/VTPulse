@@ -1,0 +1,24 @@
+{
+  "admins": [],
+  "visits": [
+    {
+      "_id": "d64a73e5392b6628ad5d67e0",
+      "path": "/",
+      "ip": "127.0.0.1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36 Edg/146.0.0.0"
+    },
+    {
+      "_id": "42cf69a249d39e93eca55fd1",
+      "path": "/",
+      "ip": "127.0.0.1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36 Edg/146.0.0.0"
+    }
+  ],
+  "clicks": [
+    {
+      "_id": "3c014c76cab9c1c717a9806d",
+      "element": "a | GitHub | href:https://github.com/mohamed2009gamal",
+      "path": "/"
+    }
+  ]
+}

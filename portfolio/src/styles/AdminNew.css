@@ -1,0 +1,306 @@
+/* SCOPED ROOT - Replaces Body */
+.main-container { /* Scoped root container - replaces body */
+  display: flex; /* Flex centering */
+  justify-content: center; /* Horizontal center */
+  align-items: center; /* Vertical center */
+  width: 100%; /* Full width */
+  height: 100vh; /* Full height */
+  background: var(--app-bg); /* Theme app background gradient */
+  padding: 20px; /* Edge padding */
+  font-family: "Inter", sans-serif; /* Font family */
+  color: var(--text); /* Theme text color */
+}
+
+/* Universal Reset specifically for this component */
+.main-container * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* MAIN CARD */
+.main-container .card-box { /* Main card container */
+  display: flex; /* Flex for panels */
+  flex-wrap: wrap; /* Responsive stack */ 
+  width: 100%; /* Full width */
+  max-width: 1000px; /* Constraint */
+  background: var(--cardBg); /* Theme card bg */
+  border-radius: 24px; /* Rounded */
+  overflow: hidden; /* Clip content */
+  border: 1px solid var(--inputBorder); /* Theme border */
+  box-shadow: 0 0 40px var(--ring); /* Theme shadow */
+}
+
+/* LEFT SIDE */
+.main-container .left-panel { /* Left hero panel */
+  flex: 1 1 340px; /* Flexible with min width */
+  position: relative; /* For noise overlay */
+  background: radial-gradient(circle at 50% 10%, var(--accent) 0%, var(--buttonBg) 30%, var(--bg) 100%); /* Theme radial gradient */
+  padding: 40px; /* Spacing */
+  display: flex; /* Flex layout */
+  flex-direction: column; /* Vertical */
+  justify-content: space-between; /* Space content */
+  min-height: 450px; /* Min height */
+}
+
+.main-container .noise-texture {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.08'/%3E%3C/svg%3E");
+  opacity: 0.6;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+}
+
+.main-container .brand-header {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.main-container .hero-text {
+  position: relative;
+  z-index: 2;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+/* Fake H1 */
+.main-container .hero-title {
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 16px;
+}
+
+.main-container .hero-desc {
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 32px;
+  font-size: 15px;
+}
+
+.main-container .step-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.main-container .step-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  transition: 0.3s;
+  font-size: 14px;
+}
+
+.main-container .active-step {
+  background: white;
+  color: black;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  border: none;
+}
+
+.main-container .step-num {
+  width: 24px;
+  height: 24px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.main-container .active-step .step-num {
+  background: black;
+  color: white;
+}
+
+/* RIGHT SIDE */
+.main-container .right-panel { /* Right form panel */
+  flex: 1 1 340px; /* Flexible width */
+  background: var(--cardBg); /* Theme card bg */
+  padding: 40px; /* Spacing */
+  display: flex; /* Flex */
+  flex-direction: column; /* Vertical */
+  justify-content: center; /* Center content */
+}
+
+.main-container .form-wrapper {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.main-container .form-header-group {
+  margin-bottom: 32px;
+}
+
+/* Fake H2 */
+.main-container .form-title {
+  color: white;
+  font-size: 26px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.main-container .form-desc {
+  color: #888;
+  font-size: 14px;
+}
+
+.main-container .social-btn-group {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.main-container .social-button {
+  flex: 1;
+  background: transparent;
+  border: 1px solid #333;
+  color: white;
+  padding: 12px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: 0.2s;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+}
+
+.main-container .social-button:hover:not(:disabled) {
+  background: #111;
+  border-color: #555;
+}
+
+.main-container .social-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.main-container .divider-text {
+  display: flex;
+  align-items: center;
+  color: #666;
+  font-size: 13px;
+  margin-bottom: 24px;
+}
+
+.main-container .divider-text::before,
+.main-container .divider-text::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #333;
+  margin: 0 16px;
+}
+
+/* INPUTS */
+.main-container .input-box {
+  margin-bottom: 20px;
+  width: 100%;
+  min-width: 0; /* Prevents overflow in flexbox */
+}
+
+.main-container .input-label {
+  display: block;
+  color: #ccc;
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.main-container .input-field {
+  width: 100%;
+  background: #121212;
+  border: 1px solid #1a1a1a;
+  padding: 14px;
+  border-radius: 8px;
+  color: white;
+  outline: none;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  transition: 0.2s;
+}
+
+.main-container .input-field:focus {
+  background: #1a1a1a;
+  border-color: #444;
+}
+
+.main-container .password-wrapper {
+  position: relative;
+}
+
+.main-container .eye-icon {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.main-container .hint-text {
+  color: #666;
+  font-size: 12px;
+  margin-top: -10px;
+  margin-bottom: 24px;
+}
+
+.main-container .submit-button {
+  width: 100%;
+  background: white;
+  color: black;
+  border: none;
+  padding: 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+  font-family: "Inter", sans-serif;
+  font-size: 15px;
+}
+
+.main-container .submit-button:hover:not(:disabled) {
+  background: #e5e5e5;
+}
+
+.main-container .submit-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.main-container .footer-text {
+  text-align: center;
+  margin-top: 24px;
+  color: #888;
+  font-size: 13px;
+}
+
+/* Mobile Tweak specifically for the preview card size */
+@media (max-width: 500px) {
+  .main-container .left-panel,
+  .main-container .right-panel {
+    padding: 24px;
+  }
+
+  .main-container .hero-title {
+    font-size: 28px;
+  }
+}

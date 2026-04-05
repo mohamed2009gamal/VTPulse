@@ -1,0 +1,588 @@
+header ul {
+  display: flex;
+  gap: 20px;
+  padding: 0;
+  margin-right: 60px;
+  list-style: none;
+  animation: fadeInFromRight 2s ease forwards;
+
+}
+
+@keyframes fadeInFromRight {
+  0% {
+    opacity: 0;
+    transform: translate(70%, -100px);
+    /* Start offscreen to the right and slightly above */
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0, 0);
+    /* End at normal position */
+  }
+}
+
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  justify-content: space-between;
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  border-radius: 12px;
+  margin: 15px 20px;
+  z-index: 1000;
+
+}
+
+header.header {
+  position: relative;
+  width: 100%;
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+/* When scrolled, fix the header */
+header.header.scrolled {
+  position: fixed;
+  top: 0;
+  left: 0;
+  margin: 0;
+  right: 11%;
+  width: 100%;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  animation: slideDown 0.6s ease forwards;
+}
+
+/* Optional after pseudo-element */
+header.header.scrolled::after {
+  content: "";
+  position: absolute;
+  right: 10%;
+  width: 30%;
+  height: 4px;
+  background-color: #007bff;
+  /* Customize as needed */
+}
+
+/* Animation */
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+
+@keyframes slide {
+  0% {
+    transform: translate(2%, 5%);
+  }
+
+  100% {
+    transform: translate(0, 5%);
+  }
+}
+
+@keyframes slideDown {
+  0% {
+    transform: translateY(-100%);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+header::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 11.5%;
+  width: 30%;
+  height: 4px;
+  background-color: #007bff;
+  border-radius: 10px;
+  z-index: -1;
+}
+
+
+
+
+
+
+/* logo --------------------------------------------------------------------------*/
+.logo h1 {
+  font-size: 2.8rem;
+  font-weight: 900;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  position: relative;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  cursor: pointer;
+
+}
+
+.logo h1::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 6px;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #1e90ff, transparent);
+  animation: pulse 1.5s infinite ease-in-out;
+  color: #ffffff;
+}
+.logo .venom {
+  color: #ffffff;
+}
+
+.logo .tech {
+  color: #1e90ff;
+}
+
+.logo .tech::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #1e90ff, transparent);
+  animation: pulse 2s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scaleX(1);
+    opacity: 0;
+  }
+
+  50% {
+    transform: scaleX(4);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scaleX(1);
+    opacity: 0;
+  }
+}
+
+/* =========================================================
+   NAV (NO MAIN BACKGROUND)
+========================================================= */
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 60px;
+  background: transparent;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* =========================================================
+   NAV LINKS CONTAINER
+========================================================= */
+.nav-links {
+  display: flex;
+  gap: 18px;
+  list-style: none;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+/* =========================================================
+   LIST ITEMS – SMOOTH HOVER EFFECT
+========================================================= */
+.nav-links li {
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+/* Fade + scale others when hovering the list */
+.nav-links:hover li {
+  opacity: 0.55;
+  transform: scale(0.96);
+}
+
+/* Highlight hovered item */
+.nav-links li:hover {
+  opacity: 1;
+  transform: scale(1.06);
+}
+
+/* =========================================================
+   LINKS STYLE (BIGGER & BOLDER)
+========================================================= */
+.nav-links li a {
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 19px;
+  padding: 6px 10px;
+  border-radius: 10px;
+  position: relative;
+  transition: background-color 0.25s ease, color 0.25s ease;
+
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* =========================================================
+   HOVER BACKGROUND (FIXED CONTRAST)
+========================================================= */
+.nav-links li a:hover {
+  background-color: rgb(0, 0, 0);
+  color: #ffffff;
+}
+
+/* =========================================================
+   ACTIVE LINK (CLEAN & CONSISTENT)
+========================================================= */
+.nav-links li a.active {
+  color: #0011ff;
+}
+
+/* =========================================================
+   UNDERLINE ANIMATION (RESTORED & FIXED)
+========================================================= */
+.nav-links li a::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -6px;
+  width: 0;
+  height: 3px;
+  background-color: #1100ff;
+  border-radius: 5px;
+  transform: translateX(-50%);
+  transition: width 0.3s ease;
+}
+
+/* Show underline on hover & active */
+.nav-links li a:hover::after,
+.nav-links li a.active::after {
+  width: 100%;
+}
+
+/* =========================================================
+   GITHUB ICON
+========================================================= */
+.nav-links i {
+  font-size: 22px;
+  margin-left: 6px;
+  transition: transform 0.3s ease;
+}
+
+.nav-links a:hover i {
+  transform: translateY(-2px);
+}
+
+/* =========================================================
+   MOBILE SAFE
+========================================================= */
+@media (max-width: 768px) {
+  nav {
+    padding: 16px 20px;
+  }
+
+  .nav-links {
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+
+  .nav-links li:hover {
+    transform: scale(1.03);
+  }
+}
+
+
+/* ================================
+   CHECKBOX
+================================ */
+#checkbox {
+  display: none;
+}
+
+/* ================================
+   TOGGLE BUTTON
+================================ */
+.toggle {
+  max-height: 100%;
+  max-height: 100%;
+  cursor: pointer;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.bars {
+  width: 26px;
+  height: 4px;
+  background-color: rgb(176, 92, 255);
+  border-radius: 4px;
+  transition: 0.4s ease;
+}
+
+/* ================================
+   TOGGLE ANIMATION (UNCHANGED LOGIC)
+================================ */
+#checkbox:checked + .toggle .bars {
+  position: absolute;
+}
+
+#checkbox:checked + .toggle #bar2 {
+  transform: scaleX(0);
+}
+
+#checkbox:checked + .toggle #bar1 {
+  transform: rotate(45deg);
+}
+
+#checkbox:checked + .toggle #bar3 {
+  transform: rotate(-45deg);
+}
+
+#checkbox:checked + .toggle {
+  transform: rotate(180deg);
+}
+
+/* ================================
+   RESPONSIVE CONTROLLER
+================================ */
+
+/* Tablets */
+@media (max-width: 1224px) {
+  .nav-links a {
+    font-size: 18px;
+    padding: 9px 14px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 900px) {
+  .toggle {
+    display: flex;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 75px;
+    right: 30px;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.9);
+    padding: 18px;
+    border-radius: 14px;
+    gap: 12px;
+    display: none;
+    min-width: 220px;
+  }
+
+  #checkbox:checked ~ .nav-links {
+    display: flex;
+  }
+
+  .nav-links a {
+    width: 100%;
+    text-align: center;
+    font-size: 18px;
+  }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+  nav {
+    padding: 16px 20px;
+  }
+
+  .nav-links {
+    right: 16px;
+  }
+
+  .nav-links a {
+    font-size: 17px;
+  }
+}
+
+
+
+
+
+/* header movaable links ===================================------------------------------------------------------------------------------------------*/
+ul.wrapper {
+  position: fixed;
+  top: 100px;
+  left: 20px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: fit-content;
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  background: #011629;
+  border-radius: 20px;
+  transition: all 0.4s ease-in-out;
+  animation: slideDown 1s ease-in-out;
+  z-index: 10000;
+}
+
+ul.wrapper.scrolled {
+  position: fixed;
+  top: auto;
+  right: auto;
+  bottom: 15px;
+  left: 15px;
+  height: fit-content;
+  flex-direction: column;
+  z-index: 10000;
+}
+
+.wrapper .icon {
+  position: relative;
+  border-radius: 50%;
+  margin: 10px;
+  width: 50px;
+  height: 50px;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  cursor: pointer;
+  transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  color: #fa6400d0;
+  text-decoration: none;
+}
+
+.wrapper .icon a {
+  color: inherit;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.wrapper .tooltip {
+  position: absolute;
+  top: 0;
+  font-size: 14px;
+  background: #fff;
+  padding: 5px 8px;
+  border-radius: 5px;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  white-space: nowrap;
+  user-select: none;
+  z-index: 10;
+}
+
+.wrapper .tooltip::before {
+  position: absolute;
+  content: "";
+  height: 8px;
+  width: 8px;
+  bottom: 22px;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+  z-index: 10;
+  visibility: visible;
+  display: block;
+}
+
+.wrapper .icon:hover .tooltip {
+  top: 70px;
+  opacity: 1;
+  pointer-events: auto;
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.1);
+}
+
+.wrapper.scrolled .tooltip::before {
+  position: absolute;
+  content: "";
+  height: 8px;
+  width: 8px;
+  top: 8.5px;
+  left: 0px;
+  z-index: 10;
+  visibility: visible;
+  display: block;
+}
+
+.wrapper.scrolled .icon:hover .tooltip {
+  top: 12px;
+  left: 70px;
+  opacity: 1;
+  pointer-events: auto;
+  color: #ffffff;
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.1);
+}
+
+.wrapper .facebook:hover,
+.wrapper .facebook:hover .tooltip,
+.wrapper .facebook:hover .tooltip::before {
+  background: #1877f2;
+  color: #fff;
+}
+
+.wrapper .twitter:hover,
+.wrapper .twitter:hover .tooltip,
+.wrapper .twitter:hover .tooltip::before {
+  background: #1da1f2;
+  color: #fff;
+}
+
+.wrapper .instagram:hover,
+.wrapper .instagram:hover .tooltip,
+.wrapper .instagram:hover .tooltip::before {
+  background: #e4405f;
+  color: #fff;
+}
+
+.wrapper .linkedin:hover,
+.wrapper .linkedin:hover .tooltip,
+.wrapper .linkedin:hover .tooltip::before {
+  background: #0077b5;
+  color: #fff;
+}
+
+.wrapper .github:hover,
+.wrapper .github:hover .tooltip,
+.wrapper .github:hover .tooltip::before {
+  background: #333;
+  color: #fff;
+}
+
+
+/* Optional animation */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+

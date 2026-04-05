@@ -1,0 +1,63 @@
+.backtotopbutton {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: none;
+  background: linear-gradient(135deg, #0a84ff, #0057d9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 10px 25px rgba(10, 132, 255, 0.35);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px) scale(0.9);
+  transition: 
+    opacity 0.35s ease,
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+  z-index: 999;
+}
+
+/* Show state */
+.backtotopbutton.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+}
+
+/* Hover effect */
+.backtotopbutton:hover {
+  box-shadow: 0 15px 35px rgba(10, 132, 255, 0.55);
+  transform: translateY(-4px) scale(1.05);
+}
+
+/* Click effect */
+.backtotopbutton:active {
+  transform: scale(0.95);
+}
+
+/* SVG icon */
+.svgIcon {
+  width: 18px;
+  height: 18px;
+  fill: white;
+  transition: transform 0.3s ease;
+}
+
+.backtotopbutton:hover .svgIcon {
+  transform: translateY(-2px);
+}
+
+/* Mobile optimization */
+@media (max-width: 768px) {
+  .backtotopbutton {
+    width: 46px;
+    height: 46px;
+    bottom: 20px;
+    right: 20px;
+  }
+}

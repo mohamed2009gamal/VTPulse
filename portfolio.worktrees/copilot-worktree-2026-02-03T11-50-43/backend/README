@@ -1,0 +1,103 @@
+##Set up the envioroment>
+#option 1 ----------------------------------------------------------------
+React / Vanilla JS → Backend (Node.js + Express + MongoDB)
+HTML form 
+//
+    <form id="subscribeForm">
+        <input type="email" name="email" placeholder="E-mail address" required />
+        <input type="text" name="name" placeholder="Your name" required />
+        <button type="submit">I want to receive trends</button>
+    </form>
+
+    <script>
+        document.getElementById("subscribeForm").addEventListener("submit", async (e) => {
+            e.preventDefault();
+
+        const formData = {
+            email: e.target.email.value,
+            name: e.target.name.value
+        };
+
+        const res = await fetch("http://localhost:5000/subscribe", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(formData)
+        });
+
+        if (res.ok) {
+            alert("Subscribed successfully!");
+            e.target.reset();
+            }
+        });
+    </script>
+
+//
+
+#option 2 ----------------------------------------------------------------
+++Backend (Node.js + Express)
+    Install dependencies
+        -npm init -y
+        -npm install express mongoose cors
+
+// make a file named with "server.js" in the backend folder then add>
+//
+    const express = require("express");
+    const mongoose = require("mongoose");
+    const cors = require("cors");
+
+    const app = express();
+    app.use(cors());
+    app.use(express.json());
+
+    // MongoDB connection
+    mongoose.connect("mongodb://127.0.0.1:27017/subscribers", {
+      useNewUrlParser: true,
+      useUnifiedTopology: true
+    });
+
+    // Schema
+    const UserSchema = new mongoose.Schema({
+      email: { type: String, required: true, unique: true },
+      name: { type: String, required: true },
+      createdAt: { type: Date, default: Date.now }
+    });
+
+    const User = mongoose.model("User", UserSchema);
+
+    // Route
+    app.post("/subscribe", async (req, res) => {
+      try {
+        const user = new User(req.body);
+        await user.save();
+        res.status(201).json({ message: "User saved" });
+      } catch (err) {
+        res.status(400).json({ error: "Email already exists or invalid data" });
+      }
+    });
+
+    app.listen(5000, () => console.log("Server running on port 5000"));
+//
+
+
+##starting the backend>
+to run the "server.js" or "backend">
+-cd backend
+-node server.js
+-net start MongoDB
+
+
+##errors could be showen In Console>
+    ❌ CORS policy blocked → CORS issue
+
+    ❌ Failed to fetch → backend not running / wrong URL
+
+    ❌ 404 / 500 → route error
+
+    ❌ net::ERR_CONNECTION_REFUSED → server offline
+
+    #incase there's undefined errors>
+        -restarting the server>
+            open the powershell as administrator 
+            then type "services.msc"
+            Find MongoDB Server
+            start it or restart it if neened

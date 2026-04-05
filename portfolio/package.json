@@ -1,0 +1,62 @@
+{
+  "name": "portfolio",
+  "version": "0.2.0",
+  "private": true,
+  "homepage": "https://mohamed2009gamal.github.io",
+  "proxy": "http://localhost:4000",
+  "dependencies": {
+    "@testing-library/dom": "^10.4.0",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^12.1.5",
+    "@testing-library/user-event": "^14.2.1",
+    "axios": "^1.13.6",
+    "connect-mongo": "^6.0.0",
+    "emailjs-com": "^3.2.0",
+    "express-session": "^1.19.0",
+    "framer-motion": "^4.1.17",
+    "openai": "^6.27.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-helmet-async": "^2.0.5",
+    "react-icons": "^5.5.0",
+    "react-router-dom": "^5.3.4",
+    "react-scripts": "5.0.1",
+    "styled-components": "^6.3.11",
+    "web-vitals": "^2.1.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.21",
+    "baseline-browser-mapping": "^2.10.8",
+    "browserslist": "^4.28.1",
+    "caniuse-lite": "^1.0.30001779",
+    "gh-pages": "^6.3.0",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.1.11"
+  }
+}

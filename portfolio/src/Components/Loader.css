@@ -1,0 +1,99 @@
+/* Pure CSS Loader - no inline styles */
+.loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 50vh;
+  width: 100%;
+}
+
+.loader {
+  position: relative;
+  width: 400px;
+  height: 250px;
+}
+
+.chip {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 140px;
+  height: 100px;
+  background: linear-gradient(180deg, #2d2d2d 0%, #0f0f0f 100%);
+  border-radius: 20px;
+  border: 3px solid #222;
+  box-shadow: 0 0 20px rgba(0, 100, 255, 0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Arial', sans-serif;
+  font-size: 22px;
+  font-weight: bold;
+  color: #eee;
+  background-clip: text;
+  -webkit-background-clip: text;
+  letter-spacing: 1px;
+}
+
+.chip-text {
+  background: linear-gradient(180deg, #eeeeee 0%, #888888 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.chip-pins {
+  position: absolute;
+  left: -10px;
+  right: -10px;
+  top: 10px;
+  bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  pointer-events: none;
+}
+
+.pin {
+  width: 8px;
+  height: 10px;
+  background: linear-gradient(90deg, #bbbbbb 0%, #888888 50%, #555555 100%);
+  border-radius: 2px;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.6);
+}
+
+.traces {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.trace {
+  position: absolute;
+  stroke-width: 2;
+  stroke: #399fff;
+  fill: none;
+  filter: drop-shadow(0 0 4px currentColor);
+  stroke-dasharray: 40 400;
+  stroke-dashoffset: 438;
+  animation: flow 3s cubic-bezier(0.5, 0, 0.9, 1) infinite;
+}
+
+.trace:nth-child(2) { stroke-dashoffset: 0; animation-delay: -0.75s; }
+.trace:nth-child(3) { stroke-dashoffset: 219; animation-delay: -1.5s; }
+.trace:nth-child(4) { stroke-dashoffset: 109.5; animation-delay: -2.25s; }
+
+@keyframes flow {
+  to { stroke-dashoffset: 0; }
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .loader { width: 300px; height: 200px; }
+  .chip { font-size: 18px; width: 120px; height: 80px; }
+}
+
